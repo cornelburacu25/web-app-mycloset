@@ -1,0 +1,20 @@
+const express = require("express");
+const router = express.Router();
+const outfitController = require("../../controller/outfit/outfitController");
+
+router.post("/outfits", outfitController.createOutfit);
+router.put("/outfits/:id",outfitController.updateOutfit);
+router.get("/outfits", outfitController.getAllOutfits);
+router.get("/youroutfits/:user_id", outfitController.getAllOutfitsForUser);
+router.get('/filter-outfits/:user_id', outfitController.filterOutfits);
+router.get("/filter-outfits-by-weather/:user_id", outfitController.filterOutfitsByWeather);
+router.get("/filter-outfits-by-filters/:user_id", outfitController.filterOutfitsByFilters);
+router.get('/filter-disliked-outfits/:user_id', outfitController.filterDislikedOutfits);
+router.get("/filter-disliked-outfits-by-weather/:user_id", outfitController.getFilteredDislikedOutfitsByWeather);
+router.get("/outfits/:id", outfitController.getOutfitById);
+router.delete("/outfits/:id", outfitController.deleteOutfit);
+router.post("/outfits/check-duplicate", outfitController.checkDuplicateOutfitCall);
+router.post("/outfits/check-update-duplicate", outfitController.checkUpdateDuplicateOutfitCall);
+router.patch("/outfits/:id/favorite", outfitController.toggleFavorite);
+router.patch("/outfits/:id/like", outfitController.likeOutfit);
+module.exports = router;
